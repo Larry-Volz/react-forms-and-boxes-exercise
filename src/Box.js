@@ -1,11 +1,11 @@
 import React from "react";
 
 function Box({
-  id,
-  handleRemove,
-  width = 4,
-  height = 4,
-  backgroundColor = "green"
+    id,
+    handleRemove,
+    width = 4,
+    height = 4,
+    backgroundColor = "green"
 }) {
 
     return (

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import uuid from "uuid/v4";
+import { v4 as uuidv4 } from 'uuid';
 
 function NewBoxForm({addBox}) {
 
@@ -23,9 +24,7 @@ function NewBoxForm({addBox}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         //pass data up to parent like a post req
-
-        //DO - addItem functionality and pass up to BoxList
-        // addItem({ ...formData });
+        addBox({ ...formData, id: uuidv4(), key: uuidv4() });
         // setFormData(INITIAL_STATE)
         console.log("at handleSubmit()");
     }
@@ -67,7 +66,7 @@ function NewBoxForm({addBox}) {
             <button id="newBoxButton">Add a new box!</button>
             </form>
 
-            {`height ${formData.height}, width ${formData.width}, color ${formData.backgroundColor}`}
+            {`height ${formData.height}, width ${formData.width}, color ${formData.backgroundColor}, id ${formData.id}, key ${formData.key}`}
             <br /><br />
         </div>
       );

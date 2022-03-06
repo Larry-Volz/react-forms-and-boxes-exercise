@@ -17,10 +17,20 @@ const INITIAL_STATE = [
         }
     ]
 
-    const [boxes, setBoxes] = useState(INITIAL_STATE);
+    const [boxes, setBoxes] = useState([]);
     // console.log(boxes);
     // ({id, handleRemove, width, height, backgroundColor} = boxes);
 
+    // const add = boxObj => {
+    //     setBoxes(boxes => [...boxes, boxObj]);
+    //   };
+
+    const addBox = (newBox)=> {
+        setBoxes(boxes => [...boxes, {...newBox}])
+        console.log(boxes);
+    }
+
+    //DO handleRemove
     const toRender = boxes.map(box => (
             <Box
                 key={box.key}
@@ -35,7 +45,7 @@ const INITIAL_STATE = [
     return (
         <div>
             <p>My Boxes</p>
-            <NewBoxForm />
+            <NewBoxForm addBox={addBox}/>
             { toRender }
         </div>
     )
