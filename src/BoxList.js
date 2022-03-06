@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Box from "./Box";
-//import NewBoxForm from "./NewBoxForm";
+import NewBoxForm from "./NewBoxForm";
 
 
 function BoxList(){
@@ -34,8 +34,9 @@ const INITIAL_STATE = [
         
     return (
         <div>
-            <p>testing</p>
-        { toRender }
+            <p>My Boxes</p>
+            <NewBoxForm />
+            { toRender }
         </div>
     )
 
