@@ -5,25 +5,9 @@ import NewBoxForm from "./NewBoxForm";
 
 function BoxList(){
 
-//DO: ADD UUID, do handleRemove
-const INITIAL_STATE = [
-        {   
-            key:0,
-            id:0,
-            handleRemove: "put function here",
-            width: 6,
-            height: 6,
-            backgroundColor: "red"
-        }
-    ]
+//DO: handleRemove
 
     const [boxes, setBoxes] = useState([]);
-    // console.log(boxes);
-    // ({id, handleRemove, width, height, backgroundColor} = boxes);
-
-    // const add = boxObj => {
-    //     setBoxes(boxes => [...boxes, boxObj]);
-    //   };
 
     const addBox = (newBox)=> {
         setBoxes(boxes => [...boxes, {...newBox}])
@@ -31,13 +15,19 @@ const INITIAL_STATE = [
     }
 
     //DO handleRemove
+
+    const handleRemove = boxId => {
+        setBoxes(boxes => boxes.filter(box => box.id !==boxId));
+    }
+
+
     const toRender = boxes.map(box => (
             <Box
                 key={box.key}
                 id={box.id}
                 width={box.width}
                 height={box.height}
-                handleRemove={box.handleRemove}
+                handleRemove={handleRemove}
                 backgroundColor={box.backgroundColor} 
             />
         ));
@@ -45,7 +35,7 @@ const INITIAL_STATE = [
     return (
         <div>
             <p>My Boxes</p>
-            <NewBoxForm addBox={addBox}/>
+            <NewBoxForm addBox={addBox} handleRemove={handleRemove}/>
             { toRender }
         </div>
     )

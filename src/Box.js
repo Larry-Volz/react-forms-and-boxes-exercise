@@ -17,6 +17,7 @@ function Box({
                 backgroundColor
             }}
             />
+            <button onClick={() => handleRemove({id})}>X</button>
         </div>
     )
 }
