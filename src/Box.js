@@ -17,7 +17,7 @@ function Box({
                 backgroundColor
             }}
             />
-            <button onClick={() => handleRemove({id})}>X</button>
+            <button onClick={() => handleRemove(id)}>X</button>
         </div>
     )
 }
